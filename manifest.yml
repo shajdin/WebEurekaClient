@@ -1,0 +1,7 @@
+---
+applications:
+- name: sh44794-eureka-web
+  memory: 512M
+  random-route: true
+  path: target/user-0.0.1-SNAPSHOT.jar
+#  buildpack: java_buildpack

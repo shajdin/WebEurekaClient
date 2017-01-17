@@ -1,0 +1,26 @@
+# Spring properties
+spring:
+  application:
+    name: web-service  # Identify this application
+  freemarker:
+    enabled: false     # Ignore Eureka dashboard FreeMarker templates
+  thymeleaf:
+    cache: false       # Allow Thymeleaf templates to be reloaded at runtime
+    prefix: classpath:/web-server/templates/    # Trailing / mandatory
+                       # Template location for this application only
+
+# Discovery Server Access
+#  1. Define URL of registration server (defaultZone)
+#  2. Reduce lease-renewal time so processes register more quickly
+eureka:
+  instance:
+     nonSecurePort: 80
+     leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+  client:
+    serviceUrl:
+      defaultZone: https://sh44794-eureka-disputable-depravity.cfapps.io/eureka/
+      register-with-eureka: true
+
+# HTTP Server
+server:
+  port: 8080   # HTTP (Tomcat) port
